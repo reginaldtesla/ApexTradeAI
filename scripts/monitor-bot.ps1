@@ -66,7 +66,7 @@ while ($true) {
 
     if (((Get-Date) - $lastHeartbeat).TotalSeconds -ge 120) {
         try {
-            $resp = Invoke-RestMethod -Uri "http://127.0.0.1:8000/bot/live" -TimeoutSec 10
+            $resp = Invoke-RestMethod -Uri "https://apextradeai.test/bot/live" -TimeoutSec 10
             $s = $resp.state
             $m = $resp.market
             Write-Output "HEARTBEAT: $(Get-Date -Format 'HH:mm:ss') symbol=$($resp.symbol) status=$($s.status) price=$($m.price) signal=$($m.signal) active=$($s.active_balance) reserve=$($s.reserve_balance) in_position=$($s.in_position) trades=$($s.total_trades) last_run=$($s.last_run_human)"
